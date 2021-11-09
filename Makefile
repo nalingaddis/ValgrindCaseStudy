@@ -1,3 +1,11 @@
+## Before making for instructors
+## Make sure you navigate to the valgrind directory
+## Run the following commands
+## 		autogen.sh
+##  	./configure --prefix=`pwd`/inst
+##  	make
+##  	make install 
+
 all: instructors students
 
 ## INSTRUCTOR REQUIREMENTS
