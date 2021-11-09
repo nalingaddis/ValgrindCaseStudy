@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "../valgrind/include/valgrind.h"
 
-char I_WRAP_SONAME_FNNAME_ZU(Za, getchar)()
+char I_WRAP_SONAME_FNNAME_ZZ(Za, getchar)()
 {
     char result;
     OrigFn fn;
@@ -11,7 +11,7 @@ char I_WRAP_SONAME_FNNAME_ZU(Za, getchar)()
     return result;
 }
 
-void I_WRAP_SONAME_FNNAME_ZU(Za, putchar)(char input)
+void I_WRAP_SONAME_FNNAME_ZZ(Za, putchar)(char input)
 {
     OrigFn fn;
     VALGRIND_GET_ORIG_FN(fn);

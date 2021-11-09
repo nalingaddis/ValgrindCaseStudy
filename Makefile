@@ -10,7 +10,7 @@ all: instructors students
 
 ## INSTRUCTOR REQUIREMENTS
 CC = gcc
-FLAGS = -c
+FLAGS = -pthread
 
 BIN = bin
 WRAPPERS = wrappers
@@ -21,7 +21,7 @@ OBJ = $(patsubst %,$(BIN)/%,$(_OBJ))
 instructors: $(OBJ)
 
 $(BIN)/%.o: $(WRAPPERS)/%.c 
-	$(CC) $(FLAGS) $^ -o $@
+	$(CC) -c $(FLAGS) $^ -o $@
 
 ## STUDENT VIEW
 ### assume we provide wrapper object files for them
@@ -34,7 +34,7 @@ EXEC = $(patsubst %,$(BIN)/%,$(_EXEC))
 students: $(EXEC)
 
 $(BIN)/%: $(SRC)/%/*.c $(DEPS) $(BIN)/%_wrapper.o
-	$(CC) $^ -o $@ -pthread
+	$(CC) $^ -o $@ $(FLAGS)
 
 ## ALL
 .PHONY: clean
