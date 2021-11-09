@@ -1,11 +1,18 @@
 FROM ubuntu:latest
 
-# install gcc compiler
 RUN apt update
+
+# gcc compiler
 RUN apt install build-essential -y
+
+# man pages
 RUN apt install manpages-dev -y
 
+# valgrind
+RUN DEBIAN_FRONTEND=noninteractive apt install g++ valgrind -y
+RUN apt install automake -y
 
+WORKDIR /home
 
 ENTRYPOINT [ "bash" ]
 
